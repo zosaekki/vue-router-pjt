@@ -14,7 +14,7 @@
     </div>
     <div>
         {{ txtVal }}
-        <input type="txtVal" v-model="txtVal">
+        <input type="txtVal" v-model="txtVal" @keyup="changeTxtVal()" @keyup.enter="enterTxtVal()">
     </div>
 </template>
 
@@ -36,6 +36,14 @@ export default {
         },
         changeSelect() {
             alert(this.selectedValue);
+        },
+        changeTxtVal() {
+            console.log(this.txtVal); 
+            // input change면 포커스를 잃어야지 실행 됨
+            // 계속 바뀔려면 keyup 사용!
+        },
+        enterTxtVal() {
+            console.log('Enter!!');
         }
     }
 }
